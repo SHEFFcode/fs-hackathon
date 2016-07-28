@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+
+  "name": "4C",
+  "description": "4 1337 4C D3V$",
+  "version": "0.1",
+
+  "browser_action": {
+    "default_icon": "iconx64.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "64": "iconx64.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "chrome_url_overrides": {
+    "newtab" : "newtab.html"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["jquery.js", "myscript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "toolbar.html",
+    "style.css"
+  ]
+}
