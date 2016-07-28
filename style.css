@@ -33,12 +33,6 @@ footer {
   color: #fff;
 }
 
-
-#myOwnCustomToolbar12345 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: black;
-  color: white;
+#wiki-footer {
+  margin-top: 5px;
 }

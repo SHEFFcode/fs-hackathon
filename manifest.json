@@ -27,7 +27,6 @@
     }
   ],
   "web_accessible_resources": [
-    "toolbar.html",
     "style.css"
   ]
 }
