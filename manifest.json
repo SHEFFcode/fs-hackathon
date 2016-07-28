@@ -15,9 +15,6 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "chrome_url_overrides": {
-    "newtab" : "newtab.html"
-  },
   "permissions": [
     "tabs",
     "activeTab",
