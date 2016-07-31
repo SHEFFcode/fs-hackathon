@@ -2,19 +2,25 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   console.log(message.message);
   switch (message.message) {
     case 'injectHTTP':
-    var script = '<script src="http://localhost:8080/gateway.min.js"></script>';
+    var script = '<script async src="http://localhost:8080/gateway.min.js"></script>';
     $('head').append(script);
     chrome.storage.sync.set({'http': true}, function() {
       // Notify that we saved.
-      message('Settings saved');
+      console.log('HTTP Injection on');
+    });
+    break;
+    case 'stopInjection':
+    chrome.storage.sync.set({'http': false, 'https': false}, function() {
+      // Notify that we saved.
+      console.log('Injeciton Off');
     });
     break;
     case 'injectHTTPS':
-    var script = '<script src="https://localhost/gateway.min.js"></script>';
+    var script = '<script async src="https://localhost/gateway.min.js"></script>';
     $('head').append(script);
     chrome.storage.sync.set({'https': true}, function() {
       // Notify that we saved.
-      message('Settings saved');
+      console.log('HTTPS injection on');
     });
     break;
     case 'browser-replay':
@@ -29,7 +35,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 chrome.storage.sync.get('http', function (obj) {
   console.log(JSON.stringify(obj.http));
   if (obj.http === true) {
-    var script = '<script src="http://localhost:8080/gateway.min.js"></script>';
+    var script = '<script async src="http://localhost:8080/gateway.min.js"></script>';
     $('head').append(script);
   }
 });
@@ -37,7 +43,7 @@ chrome.storage.sync.get('http', function (obj) {
 chrome.storage.sync.get('https', function (obj) {
   console.log(JSON.stringify(obj.http));
   if (obj.http === true) {
-    var script = '<script src="https://localhost/gateway.min.js"></script>';
+    var script = '<script async src="https://localhost/gateway.min.js"></script>';
     $('head').append(script);
   }
 });
