@@ -3,7 +3,7 @@
 
   "name": "Foresee Developer Extension",
   "description": "For use by foresee developers",
-  "version": "0.2",
+  "version": "0.5",
 
   "browser_action": {
     "default_icon": "iconx64.png",

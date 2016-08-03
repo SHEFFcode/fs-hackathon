@@ -2,7 +2,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   console.log(message.message);
   switch (message.message) {
     case 'injectHTTP':
-    var script = '<script async src="http://localhost:8080/gateway.min.js"></script>';
+    var script = '<script>;(function (g) {             var d = document, i, am = d.createElement("script"), h = d.head || d.getElementsByTagName("head")[0],                     aex = {                         "src": "http://localhost:8080/gateway.min.js",                         "type": "text/javascript",                         "async": "true",                         "data-vendor": "acs",                         "data-role": "gateway"                     };             for (var attr in aex) { am.setAttribute(attr,aex[attr]); }             h.appendChild(am);             g["acsReady"] = function () {var aT = "__acsReady__", args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === "function") {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};         })(window);</script>';
     $('head').append(script);
     chrome.storage.sync.set({'http': true}, function() {
       // Notify that we saved.
@@ -16,7 +16,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     });
     break;
     case 'injectHTTPS':
-    var script = '<script async src="https://localhost/gateway.min.js"></script>';
+    var script = '<script>;(function (g) {             var d = document, i, am = d.createElement("script"), h = d.head || d.getElementsByTagName("head")[0],                     aex = {                         "src": "https://localhost/gateway.min.js",                         "type": "text/javascript",                         "async": "true",                         "data-vendor": "acs",                         "data-role": "gateway"                     };             for (var attr in aex) { am.setAttribute(attr,aex[attr]); }             h.appendChild(am);             g["acsReady"] = function () {var aT = "__acsReady__", args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === "function") {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};         })(window);</script>';
     $('head').append(script);
     chrome.storage.sync.set({'https': true}, function() {
       // Notify that we saved.
@@ -35,15 +35,15 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 chrome.storage.sync.get('http', function (obj) {
   console.log(JSON.stringify(obj.http));
   if (obj.http === true) {
-    var script = '<script async src="http://localhost:8080/gateway.min.js"></script>';
+    var script = '<script>;(function (g) {             var d = document, i, am = d.createElement("script"), h = d.head || d.getElementsByTagName("head")[0],                     aex = {                         "src": "http://localhost:8080/gateway.min.js",                         "type": "text/javascript",                         "async": "true",                         "data-vendor": "acs",                         "data-role": "gateway"                     };             for (var attr in aex) { am.setAttribute(attr,aex[attr]); }             h.appendChild(am);             g["acsReady"] = function () {var aT = "__acsReady__", args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === "function") {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};         })(window);</script>';
     $('head').append(script);
   }
 });
 
 chrome.storage.sync.get('https', function (obj) {
-  console.log(JSON.stringify(obj.http));
-  if (obj.http === true) {
-    var script = '<script async src="https://localhost/gateway.min.js"></script>';
+  console.log(JSON.stringify(obj.https));
+  if (obj.https === true) {
+    var script = '<script>;(function (g) {             var d = document, i, am = d.createElement("script"), h = d.head || d.getElementsByTagName("head")[0],                     aex = {                         "src": "https://localhost/gateway.min.js",                         "type": "text/javascript",                         "async": "true",                         "data-vendor": "acs",                         "data-role": "gateway"                     };             for (var attr in aex) { am.setAttribute(attr,aex[attr]); }             h.appendChild(am);             g["acsReady"] = function () {var aT = "__acsReady__", args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === "function") {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};         })(window);</script>';
     $('head').append(script);
   }
 });
